@@ -1,10 +1,10 @@
 {
   "main": {
-    "id": "ee0faf7c8489ae30",
+    "id": "1e02e4fb2638d333",
     "type": "split",
     "children": [
       {
-        "id": "3d92af4c2ab48586",
+        "id": "a7955e92cd761b0b",
         "type": "leaf",
         "state": {
           "type": "empty",
@@ -74,14 +74,22 @@
                 "unlinkedCollapsed": true
               }
             }
+          },
+          {
+            "id": "485d4d23b58fb109",
+            "type": "leaf",
+            "state": {
+              "type": "git-view",
+              "state": {}
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
-  "active": "3d92af4c2ab48586",
+  "active": "a7955e92cd761b0b",
   "lastOpenFiles": []
 }
