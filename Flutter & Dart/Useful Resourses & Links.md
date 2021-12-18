@@ -13,3 +13,10 @@
 -   Visual Studio Code Flutter Extension: [https://marketplace.visualstudio.com/items?itemName=Dart-Code.flutter](https://marketplace.visualstudio.com/items?itemName=Dart-Code.flutter)
     
 -   Android Studio: [https://developer.android.com/studio/](https://developer.android.com/studio/)
+-   Official Docs: [https://flutter.dev/docs](https://flutter.dev/docs)
+    
+-   Widget Catalog: [https://flutter.dev/docs/development/ui/widgets](https://flutter.dev/docs/development/ui/widgets)
+    
+-   Dart Docs: [https://dart.dev/guides/language/language-tour](https://dart.dev/guides/language/language-tour)
+    
+-   "Introduction to Widgets" - Official Docs: [https://flutter.dev/docs/development/ui/widgets-intro](https://flutter.dev/docs/development/ui/widgets-intro)
