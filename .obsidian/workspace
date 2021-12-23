@@ -10,7 +10,8 @@
           "type": "markdown",
           "state": {
             "file": "Flutter & Dart/Useful Resourses & Links.md",
-            "mode": "source"
+            "mode": "source",
+            "source": false
           }
         }
       }
@@ -97,9 +98,10 @@
   "active": "fc2e53c52ac78159",
   "lastOpenFiles": [
     "Flutter & Dart/Useful Resourses & Links.md",
+    "positivity.md",
+    "Self-Help/22 mehods to motivate myself.md",
     "Flutter & Dart/Dart Basics - Summary.md",
     "Flutter & Dart/Styling Buttons & Passing Callback Functions Around.md",
-    "Untitled.md",
     "Flutter & Dart/Understanding Lists.md",
     "Flutter & Dart/More on Git (Version Control System).md"
   ]

@@ -1,0 +1,2 @@
+- write everyday something positive
+- patience
