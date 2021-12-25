@@ -23,3 +23,12 @@
 -   Official Debugging Docs: [https://flutter.dev/docs/testing/debugging](https://flutter.dev/docs/testing/debugging)
     
 -   Dart Dev Tools: [https://flutter.github.io/devtools/](https://flutter.github.io/devtools/)
+-   More on Layouting (with `Column()`, `Row()` etc.): [https://flutter.dev/docs/development/ui/layout](https://flutter.dev/docs/development/ui/layout)
+    
+-   More on Images & Assets: [https://flutter.dev/docs/development/ui/assets-and-images](https://flutter.dev/docs/development/ui/assets-and-images)
+    
+-   Official Widget Catalog: [https://flutter.dev/docs/development/ui/widgets](https://flutter.dev/docs/development/ui/widgets)
+    
+-   Material Design Docs: [https://material.io/design/](https://material.io/design/)
+    
+-   Flutter Theming: [https://flutter.dev/docs/cookbook/design/themes](https://flutter.dev/docs/cookbook/design/themes)

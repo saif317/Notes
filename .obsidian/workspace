@@ -4,11 +4,15 @@
     "type": "split",
     "children": [
       {
-        "id": "d8ff32dce1d55f77",
+        "id": "e4ee5d0b2288807b",
         "type": "leaf",
         "state": {
-          "type": "empty",
-          "state": {}
+          "type": "markdown",
+          "state": {
+            "file": "Flutter & Dart/textScaleFactor.md",
+            "mode": "source",
+            "source": false
+          }
         }
       }
     ],
@@ -65,6 +69,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "Flutter & Dart/textScaleFactor.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -90,17 +95,17 @@
     "direction": "horizontal",
     "width": 300
   },
-  "active": "d8ff32dce1d55f77",
+  "active": "e4ee5d0b2288807b",
   "lastOpenFiles": [
-    "Art/curriculum.png",
-    "Art/10 Things I Wish Someone Had Told Me ….md",
-    "Flutter & Dart/rows-columns-cheat-sheet.pdf",
-    "Flutter & Dart/widgets-basics-cheat-sheet.pdf",
-    "positivity.md",
+    "Flutter & Dart/textScaleFactor.md",
     "Flutter & Dart/Useful Resourses & Links.md",
-    "Flutter & Dart/flutter-basics-summary.pdf",
-    "Flutter & Dart/Dart Basics - Summary.md",
-    "Self-Help/22 mehods to motivate myself.md",
-    "Flutter & Dart/Styling Buttons & Passing Callback Functions Around.md"
+    "Flutter & Dart/Links/Flutter Theming.md",
+    "Flutter & Dart/Links/Material Desgin Docs.md",
+    "Flutter & Dart/Links/Images & Assets.md",
+    "Flutter & Dart/Links/Layouts ( with `Column()`, `Row()` etc.).md",
+    "Flutter & Dart/Links/Dart Dev Tools.md",
+    "Flutter & Dart/Links/Official Debugging Docs.md",
+    "Flutter & Dart/Links/Indroduction to Widgets.md",
+    "Flutter & Dart/Links/Dart Docs.md"
   ]
 }
