@@ -4,13 +4,13 @@
     "type": "split",
     "children": [
       {
-        "id": "e4ee5d0b2288807b",
+        "id": "436e8fa492561d45",
         "type": "leaf",
         "state": {
           "type": "markdown",
           "state": {
-            "file": "Flutter & Dart/textScaleFactor.md",
-            "mode": "source",
+            "file": "Self Improvment/If the results of an exercise are not beautiful, I am doing something wrong.md",
+            "mode": "preview",
             "source": false
           }
         }
@@ -69,7 +69,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Flutter & Dart/textScaleFactor.md",
+                "file": "Self Improvment/If the results of an exercise are not beautiful, I am doing something wrong.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -95,17 +95,17 @@
     "direction": "horizontal",
     "width": 300
   },
-  "active": "e4ee5d0b2288807b",
+  "active": "436e8fa492561d45",
   "lastOpenFiles": [
-    "Flutter & Dart/textScaleFactor.md",
+    "Self Improvment/If the results of an exercise are not beautiful, I am doing something wrong.md",
+    "Self Improvment/Why is this so hard.md",
+    "Self Improvment/ON THE SUBJECT OF MOTIVATION.md",
+    "Self Improvment/ON THE SUBJECT OF TALENT.md",
+    "Flutter & Dart/6. Widget & Flutter Internals/5. widget-lifecycle.pdf",
+    "Flutter & Dart/6. Widget & Flutter Internals/4. Calling super.initState() etc.md",
     "Flutter & Dart/Useful Resourses & Links.md",
-    "Flutter & Dart/Links/Flutter Theming.md",
-    "Flutter & Dart/Links/Material Desgin Docs.md",
-    "Flutter & Dart/Links/Images & Assets.md",
-    "Flutter & Dart/Links/Layouts ( with `Column()`, `Row()` etc.).md",
-    "Flutter & Dart/Links/Dart Dev Tools.md",
-    "Flutter & Dart/Links/Official Debugging Docs.md",
-    "Flutter & Dart/Links/Indroduction to Widgets.md",
-    "Flutter & Dart/Links/Dart Docs.md"
+    "Flutter & Dart/4. Widgets, Styling, Logic/5. More on for Loops.md",
+    "Flutter & Dart/widgets-basics-cheat-sheet.pdf",
+    "Flutter & Dart/4. Widgets, Styling, Logic/4. Updated Text Theme Properties.md"
   ]
 }
