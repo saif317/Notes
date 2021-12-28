@@ -9,8 +9,8 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "Self Improvment/If the results are not beautiful, I am doing something wrong.md",
-            "mode": "preview",
+            "file": "Flutter & Dart/Layout/Layout.md",
+            "mode": "source",
             "source": false
           }
         }
@@ -69,7 +69,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Self Improvment/If the results are not beautiful, I am doing something wrong.md",
+                "file": "Flutter & Dart/Layout/Layout.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -97,15 +97,15 @@
   },
   "active": "436e8fa492561d45",
   "lastOpenFiles": [
+    "Flutter & Dart/Layout/Layout.md",
+    "Flutter & Dart/Layout/4.png",
+    "Flutter & Dart/statefullWidget.png",
+    "Flutter & Dart/Useful Resourses & Links.md",
     "Self Improvment/If the results are not beautiful, I am doing something wrong.md",
     "Self Improvment/Why is this so hard.md",
     "Self Improvment/Self Worth.md",
     "Self Improvment/ON THE SUBJECT OF TALENT.md",
     "Self Improvment/ON THE SUBJECT OF MOTIVATION.md",
-    "Self Improvment/Doing something badly does not define who you are.md",
-    "Flutter & Dart/6. Widget & Flutter Internals/5. widget-lifecycle.pdf",
-    "Flutter & Dart/6. Widget & Flutter Internals/4. Calling super.initState() etc.md",
-    "Flutter & Dart/Useful Resourses & Links.md",
-    "Flutter & Dart/4. Widgets, Styling, Logic/5. More on for Loops.md"
+    "Self Improvment/Doing something badly does not define who you are.md"
   ]
 }

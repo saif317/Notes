@@ -1,1 +1,0 @@
-Visual Studio Code Flutter Extension: [https://marketplace.visualstudio.com/items?itemName=Dart-Code.flutter](https://marketplace.visualstudio.com/items?itemName=Dart-Code.flutter)
