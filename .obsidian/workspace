@@ -7,12 +7,8 @@
         "id": "436e8fa492561d45",
         "type": "leaf",
         "state": {
-          "type": "markdown",
-          "state": {
-            "file": "Flutter & Dart/Layout/Layout.md",
-            "mode": "source",
-            "source": false
-          }
+          "type": "empty",
+          "state": {}
         }
       }
     ],
@@ -69,7 +65,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Flutter & Dart/Layout/Layout.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -97,15 +92,15 @@
   },
   "active": "436e8fa492561d45",
   "lastOpenFiles": [
-    "Flutter & Dart/Layout/Layout.md",
-    "Flutter & Dart/Layout/4.png",
-    "Flutter & Dart/statefullWidget.png",
-    "Flutter & Dart/Useful Resourses & Links.md",
-    "Self Improvment/If the results are not beautiful, I am doing something wrong.md",
-    "Self Improvment/Why is this so hard.md",
-    "Self Improvment/Self Worth.md",
-    "Self Improvment/ON THE SUBJECT OF TALENT.md",
-    "Self Improvment/ON THE SUBJECT OF MOTIVATION.md",
-    "Self Improvment/Doing something badly does not define who you are.md"
+    "React.js/Awesome React.md",
+    "Flutter & Dart/Folder Structure.md",
+    "Flutter & Dart/Dart Fundamentals/Comments/Documentation comments.md",
+    "Flutter & Dart/Dart Fundamentals/Comments/Comments.md",
+    "Flutter & Dart/Dart Fundamentals/Print to the console.md",
+    "Flutter & Dart/Dart Fundamentals/Main Function/The main function.md",
+    "Flutter & Dart/Dart Fundamentals/1. Values and variables.md",
+    "Flutter & Dart/Dart Fundamentals/Variables/Defining Variables.md",
+    "Flutter & Dart/Dart Fundamentals/Variables/Inferring the type.md",
+    "Flutter & Dart/About Dart/Why Does Flutter Use Dart.md"
   ]
 }
