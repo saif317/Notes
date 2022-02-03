@@ -1,0 +1,9 @@
+# [Becoming A Character Artist – Ultimate Guide](https://hub.flippednormals.com/becoming-a-character-artist-ultimate-guide/)
+
+Becoming a character artist is the dream of many 3D artists out there, and it's an incredibly fun job! As with anything rewarding, nothing comes for free and the price you pay to become a 3D character artist is a lot of blood and sweat. There are parts of 3D which rely more on a technical understanding, where once you understand the tools, you can start to produce OK work. Character art is _not_ one of those fields. In order to be a successful character artist, you need to have a solid foundation in a bunch of different disciplines and this takes time and dedication to learn.
+
+The goal of this article is to give you a direction for learning how to sculpt. Often, it’s not so much sitting down and doing the work which is hard, but rather having a clear idea of _what_ work you need to actually do. If you’re a beginner and want to become a character artist, or you’ve been trying to learn character art for a while now without much progression, then this article is for you! The foundation for all character art is figure sculpting, so this will be the main focus of this article. Everything else, from topology, UVs, shading, etc, is secondary to solid figure sculpting.
+
+This guide might seem pretty hardcore - but it's really not. The hardcore part is wanting to become a character artist. Doing so requires a lot of practice and dedication over a lot of time. In this article, we'll give you a method with specific steps which you can take. If followed, your art will hopefully improve like crazy in a short amount of time.
+
+We really recommend that you also join our [FlippedNormals Discord Server](https://discord.gg/uXtDUqs), as it’s a fantastic way to get feedback on your art, motivation and to be a part of a community.
