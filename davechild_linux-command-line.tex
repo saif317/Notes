@@ -1,0 +1,764 @@
+\documentclass[10pt,a4paper]{article}
+
+% Packages
+\usepackage{fancyhdr}           % For header and footer
+\usepackage{multicol}           % Allows multicols in tables
+\usepackage{tabularx}           % Intelligent column widths
+\usepackage{tabulary}           % Used in header and footer
+\usepackage{hhline}             % Border under tables
+\usepackage{graphicx}           % For images
+\usepackage{xcolor}             % For hex colours
+%\usepackage[utf8x]{inputenc}    % For unicode character support
+\usepackage[T1]{fontenc}        % Without this we get weird character replacements
+\usepackage{colortbl}           % For coloured tables
+\usepackage{setspace}           % For line height
+\usepackage{lastpage}           % Needed for total page number
+\usepackage{seqsplit}           % Splits long words.
+%\usepackage{opensans}          % Can't make this work so far. Shame. Would be lovely.
+\usepackage[normalem]{ulem}     % For underlining links
+% Most of the following are not required for the majority
+% of cheat sheets but are needed for some symbol support.
+\usepackage{amsmath}            % Symbols
+\usepackage{MnSymbol}           % Symbols
+\usepackage{wasysym}            % Symbols
+%\usepackage[english,german,french,spanish,italian]{babel}              % Languages
+
+% Document Info
+\author{Dave Child (DaveChild)}
+\pdfinfo{
+  /Title (linux-command-line.pdf)
+  /Creator (Cheatography)
+  /Author (Dave Child (DaveChild))
+  /Subject (Linux Command Line Cheat Sheet)
+}
+
+% Lengths and widths
+\addtolength{\textwidth}{6cm}
+\addtolength{\textheight}{-1cm}
+\addtolength{\hoffset}{-3cm}
+\addtolength{\voffset}{-2cm}
+\setlength{\tabcolsep}{0.2cm} % Space between columns
+\setlength{\headsep}{-12pt} % Reduce space between header and content
+\setlength{\headheight}{85pt} % If less, LaTeX automatically increases it
+\renewcommand{\footrulewidth}{0pt} % Remove footer line
+\renewcommand{\headrulewidth}{0pt} % Remove header line
+\renewcommand{\seqinsert}{\ifmmode\allowbreak\else\-\fi} % Hyphens in seqsplit
+% This two commands together give roughly
+% the right line height in the tables
+\renewcommand{\arraystretch}{1.3}
+\onehalfspacing
+
+% Commands
+\newcommand{\SetRowColor}[1]{\noalign{\gdef\RowColorName{#1}}\rowcolor{\RowColorName}} % Shortcut for row colour
+\newcommand{\mymulticolumn}[3]{\multicolumn{#1}{>{\columncolor{\RowColorName}}#2}{#3}} % For coloured multi-cols
+\newcolumntype{x}[1]{>{\raggedright}p{#1}} % New column types for ragged-right paragraph columns
+\newcommand{\tn}{\tabularnewline} % Required as custom column type in use
+
+% Font and Colours
+\definecolor{HeadBackground}{HTML}{333333}
+\definecolor{FootBackground}{HTML}{666666}
+\definecolor{TextColor}{HTML}{333333}
+\definecolor{DarkBackground}{HTML}{4F8F2B}
+\definecolor{LightBackground}{HTML}{F4F8F1}
+\renewcommand{\familydefault}{\sfdefault}
+\color{TextColor}
+
+% Header and Footer
+\pagestyle{fancy}
+\fancyhead{} % Set header to blank
+\fancyfoot{} % Set footer to blank
+\fancyhead[L]{
+\noindent
+\begin{multicols}{3}
+\begin{tabulary}{5.8cm}{C}
+    \SetRowColor{DarkBackground}
+    \vspace{-7pt}
+    {\parbox{\dimexpr\textwidth-2\fboxsep\relax}{\noindent
+        \hspace*{-6pt}\includegraphics[width=5.8cm]{/web/www.cheatography.com/public/images/cheatography_logo.pdf}}
+    }
+\end{tabulary}
+\columnbreak
+\begin{tabulary}{11cm}{L}
+    \vspace{-2pt}\large{\bf{\textcolor{DarkBackground}{\textrm{Linux Command Line Cheat Sheet}}}} \\
+    \normalsize{by \textcolor{DarkBackground}{Dave Child (DaveChild)} via \textcolor{DarkBackground}{\uline{cheatography.com/1/cs/49/}}}
+\end{tabulary}
+\end{multicols}}
+
+\fancyfoot[L]{ \footnotesize
+\noindent
+\begin{multicols}{3}
+\begin{tabulary}{5.8cm}{LL}
+  \SetRowColor{FootBackground}
+  \mymulticolumn{2}{p{5.377cm}}{\bf\textcolor{white}{Cheatographer}}  \\
+  \vspace{-2pt}Dave Child (DaveChild) \\
+  \uline{cheatography.com/davechild} \\
+        \uline{\seqsplit{aloneonahill}.com}
+  \end{tabulary}
+\vfill
+\columnbreak
+\begin{tabulary}{5.8cm}{L}
+  \SetRowColor{FootBackground}
+  \mymulticolumn{1}{p{5.377cm}}{\bf\textcolor{white}{Cheat Sheet}}  \\
+   \vspace{-2pt}Published 28th October, 2011.\\
+   Updated 29th February, 2020.\\
+   Page {\thepage} of \pageref{LastPage}.
+\end{tabulary}
+\vfill
+\columnbreak
+\begin{tabulary}{5.8cm}{L}
+  \SetRowColor{FootBackground}
+  \mymulticolumn{1}{p{5.377cm}}{\bf\textcolor{white}{Sponsor}}  \\
+  \SetRowColor{white}
+  \vspace{-5pt}
+  %\includegraphics[width=48px,height=48px]{dave.jpeg}
+  Measure your website readability!\\
+  www.readability-score.com
+\end{tabulary}
+\end{multicols}}
+
+
+
+
+\begin{document}
+\raggedright
+\raggedcolumns
+
+% Set font size to small. Switch to any value
+% from this page to resize cheat sheet text:
+% www.emerson.emory.edu/services/latex/latex_169.html
+\footnotesize % Small font.
+
+\begin{multicols*}{3}
+
+\begin{tabularx}{5.377cm}{x{3.08574 cm} x{1.89126 cm} }
+\SetRowColor{DarkBackground}
+\mymulticolumn{2}{x{5.377cm}}{\bf\textcolor{white}{Bash Commands}}  \tn
+% Row 0
+\SetRowColor{LightBackground}
+\{\{nobreak\}\}\{\{popup="http://unixhelp.ed.ac.uk/CGI/man-cgi?uname"\}\}uname -a & Show system and kernel \tn 
+% Row Count 4 (+ 4)
+% Row 1
+\SetRowColor{white}
+\{\{nobreak\}\}\{\{popup="http://unixhelp.ed.ac.uk/CGI/man-cgi?head"\}\}head -n1 /etc/issue & Show distribution \tn 
+% Row Count 8 (+ 4)
+% Row 2
+\SetRowColor{LightBackground}
+\{\{nobreak\}\}\{\{popup="http://unixhelp.ed.ac.uk/CGI/man-cgi?mount"\}\}mount & Show mounted filesystems \tn 
+% Row Count 11 (+ 3)
+% Row 3
+\SetRowColor{white}
+\{\{nobreak\}\}\{\{popup="http://unixhelp.ed.ac.uk/CGI/man-cgi?date"\}\}date & Show system date \tn 
+% Row Count 14 (+ 3)
+% Row 4
+\SetRowColor{LightBackground}
+\{\{nobreak\}\}\{\{popup="http://unixhelp.ed.ac.uk/CGI/man-cgi?uptime"\}\}uptime & Show uptime \tn 
+% Row Count 17 (+ 3)
+% Row 5
+\SetRowColor{white}
+\{\{nobreak\}\}\{\{popup="http://unixhelp.ed.ac.uk/CGI/man-cgi?whoami"\}\}whoami & Show your username \tn 
+% Row Count 20 (+ 3)
+% Row 6
+\SetRowColor{LightBackground}
+\{\{nobreak\}\}\{\{popup="http://unixhelp.ed.ac.uk/CGI/man-cgi?man"\}\}man {\emph{command}} & Show manual for {\emph{command}} \tn 
+% Row Count 24 (+ 4)
+\hhline{>{\arrayrulecolor{DarkBackground}}--}
+\end{tabularx}
+\par\addvspace{1.3em}
+
+\begin{tabularx}{5.377cm}{x{1.89126 cm} x{3.08574 cm} }
+\SetRowColor{DarkBackground}
+\mymulticolumn{2}{x{5.377cm}}{\bf\textcolor{white}{Bash Shortcuts}}  \tn
+% Row 0
+\SetRowColor{LightBackground}
+\{\{nobreak\}\}CTRL-c & Stop current command \tn 
+% Row Count 2 (+ 2)
+% Row 1
+\SetRowColor{white}
+\{\{nobreak\}\}CTRL-z & Sleep program \tn 
+% Row Count 4 (+ 2)
+% Row 2
+\SetRowColor{LightBackground}
+\{\{nobreak\}\}CTRL-a & Go to start of line \tn 
+% Row Count 6 (+ 2)
+% Row 3
+\SetRowColor{white}
+\{\{nobreak\}\}CTRL-e & Go to end of line \tn 
+% Row Count 8 (+ 2)
+% Row 4
+\SetRowColor{LightBackground}
+\{\{nobreak\}\}CTRL-u & Cut from start of line \tn 
+% Row Count 10 (+ 2)
+% Row 5
+\SetRowColor{white}
+\{\{nobreak\}\}CTRL-k & Cut to end of line \tn 
+% Row Count 12 (+ 2)
+% Row 6
+\SetRowColor{LightBackground}
+\{\{nobreak\}\}CTRL-r & Search history \tn 
+% Row Count 14 (+ 2)
+% Row 7
+\SetRowColor{white}
+\{\{nobreak\}\}!! & Repeat last command \tn 
+% Row Count 15 (+ 1)
+% Row 8
+\SetRowColor{LightBackground}
+\{\{nobreak\}\}!{\emph{abc}} & Run last command starting with {\emph{abc}} \tn 
+% Row Count 17 (+ 2)
+% Row 9
+\SetRowColor{white}
+\{\{nobreak\}\}!{\emph{abc}}:p & Print last command starting with {\emph{abc}} \tn 
+% Row Count 19 (+ 2)
+% Row 10
+\SetRowColor{LightBackground}
+\{\{nobreak\}\}!\$ & Last argument of previous command \tn 
+% Row Count 21 (+ 2)
+% Row 11
+\SetRowColor{white}
+\{\{nobreak\}\}ALT-. & Last argument of previous command \tn 
+% Row Count 23 (+ 2)
+% Row 12
+\SetRowColor{LightBackground}
+\{\{nobreak\}\}!* & All arguments of previous command \tn 
+% Row Count 25 (+ 2)
+% Row 13
+\SetRowColor{white}
+\{\{nobreak\}\}\textasciicircum{}{\emph{abc}}\textasciicircum{}{\emph{123}} & Run previous command, replacing {\emph{abc}} with {\emph{123}} \tn 
+% Row Count 27 (+ 2)
+\hhline{>{\arrayrulecolor{DarkBackground}}--}
+\end{tabularx}
+\par\addvspace{1.3em}
+
+\begin{tabularx}{5.377cm}{x{2.78712 cm} x{2.18988 cm} }
+\SetRowColor{DarkBackground}
+\mymulticolumn{2}{x{5.377cm}}{\bf\textcolor{white}{Bash Variables}}  \tn
+% Row 0
+\SetRowColor{LightBackground}
+\{\{nobreak\}\}env & Show environment variables \tn 
+% Row Count 2 (+ 2)
+% Row 1
+\SetRowColor{white}
+\{\{nobreak\}\}\{\{popup="http://unixhelp.ed.ac.uk/CGI/man-cgi?echo"\}\}echo {\emph{\$NAME}} & Output value of {\emph{\$NAME}} variable \tn 
+% Row Count 6 (+ 4)
+% Row 2
+\SetRowColor{LightBackground}
+\{\{nobreak\}\}\{\{popup="http://unixhelp.ed.ac.uk/CGI/man-cgi?export"\}\}export {\emph{NAME}}={\emph{value}} & Set {\emph{\$NAME}} to {\emph{value}} \tn 
+% Row Count 10 (+ 4)
+% Row 3
+\SetRowColor{white}
+\{\{nobreak\}\}\$PATH & Executable search path \tn 
+% Row Count 12 (+ 2)
+% Row 4
+\SetRowColor{LightBackground}
+\{\{nobreak\}\}\$HOME & Home directory \tn 
+% Row Count 13 (+ 1)
+% Row 5
+\SetRowColor{white}
+\{\{nobreak\}\}\$SHELL & Current shell \tn 
+% Row Count 14 (+ 1)
+\hhline{>{\arrayrulecolor{DarkBackground}}--}
+\end{tabularx}
+\par\addvspace{1.3em}
+
+\begin{tabularx}{5.377cm}{X}
+\SetRowColor{DarkBackground}
+\mymulticolumn{1}{x{5.377cm}}{\bf\textcolor{white}{IO Redirection}}  \tn
+% Row 0
+\SetRowColor{LightBackground}
+\mymulticolumn{1}{x{5.377cm}}{\{\{noshy\}\}{\emph{cmd}} \textless{} {\emph{file}}} \tn 
+\mymulticolumn{1}{x{5.377cm}}{\hspace*{6 px}\rule{2px}{6px}\hspace*{6 px}Input of {\emph{cmd}} from {\emph{file}}} \tn 
+% Row Count 2 (+ 2)
+% Row 1
+\SetRowColor{white}
+\mymulticolumn{1}{x{5.377cm}}{\{\{noshy\}\}{\emph{cmd1}} \textless{}({\emph{cmd2}})} \tn 
+\mymulticolumn{1}{x{5.377cm}}{\hspace*{6 px}\rule{2px}{6px}\hspace*{6 px}Output of {\emph{cmd2}} as file input to {\emph{cmd1}}} \tn 
+% Row Count 4 (+ 2)
+% Row 2
+\SetRowColor{LightBackground}
+\mymulticolumn{1}{x{5.377cm}}{\{\{noshy\}\}{\emph{cmd}} \textgreater{} {\emph{file}}} \tn 
+\mymulticolumn{1}{x{5.377cm}}{\hspace*{6 px}\rule{2px}{6px}\hspace*{6 px}Standard output (stdout) of {\emph{cmd}} to {\emph{file}}} \tn 
+% Row Count 6 (+ 2)
+% Row 3
+\SetRowColor{white}
+\mymulticolumn{1}{x{5.377cm}}{\{\{noshy\}\}{\emph{cmd}} \textgreater{} /dev/null} \tn 
+\mymulticolumn{1}{x{5.377cm}}{\hspace*{6 px}\rule{2px}{6px}\hspace*{6 px}Discard stdout of {\emph{cmd}}} \tn 
+% Row Count 8 (+ 2)
+% Row 4
+\SetRowColor{LightBackground}
+\mymulticolumn{1}{x{5.377cm}}{\{\{noshy\}\}{\emph{cmd}} \textgreater{}\textgreater{} {\emph{file}}} \tn 
+\mymulticolumn{1}{x{5.377cm}}{\hspace*{6 px}\rule{2px}{6px}\hspace*{6 px}Append stdout to {\emph{file}}} \tn 
+% Row Count 10 (+ 2)
+% Row 5
+\SetRowColor{white}
+\mymulticolumn{1}{x{5.377cm}}{\{\{noshy\}\}{\emph{cmd}} 2\textgreater{} {\emph{file}}} \tn 
+\mymulticolumn{1}{x{5.377cm}}{\hspace*{6 px}\rule{2px}{6px}\hspace*{6 px}Error output (stderr) of {\emph{cmd}} to {\emph{file}}} \tn 
+% Row Count 12 (+ 2)
+% Row 6
+\SetRowColor{LightBackground}
+\mymulticolumn{1}{x{5.377cm}}{\{\{noshy\}\}{\emph{cmd}} 1\textgreater{}\&2} \tn 
+\mymulticolumn{1}{x{5.377cm}}{\hspace*{6 px}\rule{2px}{6px}\hspace*{6 px}stdout to same place as stderr} \tn 
+% Row Count 14 (+ 2)
+% Row 7
+\SetRowColor{white}
+\mymulticolumn{1}{x{5.377cm}}{\{\{noshy\}\}{\emph{cmd}} 2\textgreater{}\&1} \tn 
+\mymulticolumn{1}{x{5.377cm}}{\hspace*{6 px}\rule{2px}{6px}\hspace*{6 px}stderr to same place as stdout} \tn 
+% Row Count 16 (+ 2)
+% Row 8
+\SetRowColor{LightBackground}
+\mymulticolumn{1}{x{5.377cm}}{\{\{noshy\}\}{\emph{cmd}} \&\textgreater{} {\emph{file}}} \tn 
+\mymulticolumn{1}{x{5.377cm}}{\hspace*{6 px}\rule{2px}{6px}\hspace*{6 px}Every output of {\emph{cmd}} to {\emph{file}}} \tn 
+% Row Count 18 (+ 2)
+\hhline{>{\arrayrulecolor{DarkBackground}}-}
+\SetRowColor{LightBackground}
+\mymulticolumn{1}{x{5.377cm}}{{\emph{cmd}} refers to a command.}  \tn 
+\hhline{>{\arrayrulecolor{DarkBackground}}-}
+\end{tabularx}
+\par\addvspace{1.3em}
+
+\begin{tabularx}{5.377cm}{X}
+\SetRowColor{DarkBackground}
+\mymulticolumn{1}{x{5.377cm}}{\bf\textcolor{white}{Pipes}}  \tn
+% Row 0
+\SetRowColor{LightBackground}
+\mymulticolumn{1}{x{5.377cm}}{\{\{nobreak\}\}{\emph{cmd1}} | {\emph{cmd2}}} \tn 
+\mymulticolumn{1}{x{5.377cm}}{\hspace*{6 px}\rule{2px}{6px}\hspace*{6 px}stdout of {\emph{cmd1}} to {\emph{cmd2}}} \tn 
+% Row Count 2 (+ 2)
+% Row 1
+\SetRowColor{white}
+\mymulticolumn{1}{x{5.377cm}}{\{\{nobreak\}\}{\emph{cmd1}} |\& {\emph{cmd2}}} \tn 
+\mymulticolumn{1}{x{5.377cm}}{\hspace*{6 px}\rule{2px}{6px}\hspace*{6 px}stderr of {\emph{cmd1}} to {\emph{cmd2}}} \tn 
+% Row Count 4 (+ 2)
+\hhline{>{\arrayrulecolor{DarkBackground}}-}
+\end{tabularx}
+\par\addvspace{1.3em}
+
+\begin{tabularx}{5.377cm}{X}
+\SetRowColor{DarkBackground}
+\mymulticolumn{1}{x{5.377cm}}{\bf\textcolor{white}{Command Lists}}  \tn
+% Row 0
+\SetRowColor{LightBackground}
+\mymulticolumn{1}{x{5.377cm}}{\{\{nobreak\}\}{\emph{cmd1}} ; {\emph{cmd2}}} \tn 
+\mymulticolumn{1}{x{5.377cm}}{\hspace*{6 px}\rule{2px}{6px}\hspace*{6 px}Run {\emph{cmd1}} then {\emph{cmd2}}} \tn 
+% Row Count 2 (+ 2)
+% Row 1
+\SetRowColor{white}
+\mymulticolumn{1}{x{5.377cm}}{\{\{nobreak\}\}{\emph{cmd1}} \&\& {\emph{cmd2}}} \tn 
+\mymulticolumn{1}{x{5.377cm}}{\hspace*{6 px}\rule{2px}{6px}\hspace*{6 px}Run {\emph{cmd2}} if {\emph{cmd1}} is successful} \tn 
+% Row Count 4 (+ 2)
+% Row 2
+\SetRowColor{LightBackground}
+\mymulticolumn{1}{x{5.377cm}}{\{\{nobreak\}\}{\emph{cmd1}} || {\emph{cmd2}}} \tn 
+\mymulticolumn{1}{x{5.377cm}}{\hspace*{6 px}\rule{2px}{6px}\hspace*{6 px}Run {\emph{cmd2}} if {\emph{cmd1}} is not successful} \tn 
+% Row Count 6 (+ 2)
+% Row 3
+\SetRowColor{white}
+\mymulticolumn{1}{x{5.377cm}}{\{\{nobreak\}\}{\emph{cmd}} \&} \tn 
+\mymulticolumn{1}{x{5.377cm}}{\hspace*{6 px}\rule{2px}{6px}\hspace*{6 px}Run {\emph{cmd}} in a subshell} \tn 
+% Row Count 8 (+ 2)
+\hhline{>{\arrayrulecolor{DarkBackground}}-}
+\end{tabularx}
+\par\addvspace{1.3em}
+
+\begin{tabularx}{5.377cm}{x{3.08574 cm} x{1.89126 cm} }
+\SetRowColor{DarkBackground}
+\mymulticolumn{2}{x{5.377cm}}{\bf\textcolor{white}{Directory Operations}}  \tn
+% Row 0
+\SetRowColor{LightBackground}
+\{\{nobreak\}\}\{\{popup="http://unixhelp.ed.ac.uk/CGI/man-cgi?pwd"\}\}pwd & Show current directory \tn 
+% Row Count 3 (+ 3)
+% Row 1
+\SetRowColor{white}
+\{\{nobreak\}\}\{\{popup="http://unixhelp.ed.ac.uk/CGI/man-cgi?mkdir"\}\}mkdir {\emph{dir}} & Make directory {\emph{dir}} \tn 
+% Row Count 7 (+ 4)
+% Row 2
+\SetRowColor{LightBackground}
+\{\{nobreak\}\}\{\{popup="http://unixhelp.ed.ac.uk/CGI/man-cgi?cd"\}\}cd {\emph{dir}} & Change directory to {\emph{dir}} \tn 
+% Row Count 10 (+ 3)
+% Row 3
+\SetRowColor{white}
+\{\{nobreak\}\}cd .. & Go up a directory \tn 
+% Row Count 12 (+ 2)
+% Row 4
+\SetRowColor{LightBackground}
+\{\{nobreak\}\}\{\{popup="http://unixhelp.ed.ac.uk/CGI/man-cgi?ls"\}\}ls & List files \tn 
+% Row Count 15 (+ 3)
+\hhline{>{\arrayrulecolor{DarkBackground}}--}
+\end{tabularx}
+\par\addvspace{1.3em}
+
+\begin{tabularx}{5.377cm}{p{0.4977 cm} x{4.4793 cm} }
+\SetRowColor{DarkBackground}
+\mymulticolumn{2}{x{5.377cm}}{\bf\textcolor{white}{ls Options}}  \tn
+% Row 0
+\SetRowColor{LightBackground}
+-a & Show all (including hidden) \tn 
+% Row Count 1 (+ 1)
+% Row 1
+\SetRowColor{white}
+-R & Recursive list \tn 
+% Row Count 2 (+ 1)
+% Row 2
+\SetRowColor{LightBackground}
+-r & Reverse order \tn 
+% Row Count 3 (+ 1)
+% Row 3
+\SetRowColor{white}
+-t & Sort by last modified \tn 
+% Row Count 4 (+ 1)
+% Row 4
+\SetRowColor{LightBackground}
+-S & Sort by file size \tn 
+% Row Count 5 (+ 1)
+% Row 5
+\SetRowColor{white}
+-l & Long listing format \tn 
+% Row Count 6 (+ 1)
+% Row 6
+\SetRowColor{LightBackground}
+-1 & One file per line \tn 
+% Row Count 7 (+ 1)
+% Row 7
+\SetRowColor{white}
+-m & Comma-separated output \tn 
+% Row Count 8 (+ 1)
+% Row 8
+\SetRowColor{LightBackground}
+-Q & Quoted output \tn 
+% Row Count 9 (+ 1)
+\hhline{>{\arrayrulecolor{DarkBackground}}--}
+\end{tabularx}
+\par\addvspace{1.3em}
+
+\begin{tabularx}{5.377cm}{x{2.4885 cm} x{2.4885 cm} }
+\SetRowColor{DarkBackground}
+\mymulticolumn{2}{x{5.377cm}}{\bf\textcolor{white}{Search Files}}  \tn
+% Row 0
+\SetRowColor{LightBackground}
+\{\{nobreak\}\}\{\{popup="http://unixhelp.ed.ac.uk/CGI/man-cgi?grep"\}\}grep {\emph{pattern}} {\emph{files}} & Search for {\emph{pattern}} in {\emph{files}} \tn 
+% Row Count 5 (+ 5)
+% Row 1
+\SetRowColor{white}
+\{\{nobreak\}\}grep -i & Case insensitive search \tn 
+% Row Count 7 (+ 2)
+% Row 2
+\SetRowColor{LightBackground}
+\{\{nobreak\}\}grep -r & Recursive search \tn 
+% Row Count 8 (+ 1)
+% Row 3
+\SetRowColor{white}
+\{\{nobreak\}\}grep -v & Inverted search \tn 
+% Row Count 9 (+ 1)
+% Row 4
+\SetRowColor{LightBackground}
+\{\{nobreak\}\}grep -o & Show matched part of file only \tn 
+% Row Count 11 (+ 2)
+% Row 5
+\SetRowColor{white}
+\{\{nobreak\}\}\{\{popup="http://unixhelp.ed.ac.uk/CGI/man-cgi?find"\}\}find {\emph{/dir/}} -name {\emph{name}}* & Find files starting with {\emph{name}} in {\emph{dir}} \tn 
+% Row Count 16 (+ 5)
+% Row 6
+\SetRowColor{LightBackground}
+\{\{nobreak\}\}find {\emph{/dir/}} -user {\emph{name}} & Find files owned by {\emph{name}} in {\emph{dir}} \tn 
+% Row Count 18 (+ 2)
+% Row 7
+\SetRowColor{white}
+\{\{nobreak\}\}find {\emph{/dir/}} -mmin {\emph{num}} & Find files modifed less than {\emph{num}} minutes ago in {\emph{dir}} \tn 
+% Row Count 21 (+ 3)
+% Row 8
+\SetRowColor{LightBackground}
+\{\{nobreak\}\}\{\{popup="http://unixhelp.ed.ac.uk/CGI/man-cgi?whereis"\}\}whereis {\emph{command}} & Find binary / source / manual for {\emph{command}} \tn 
+% Row Count 26 (+ 5)
+% Row 9
+\SetRowColor{white}
+\{\{nobreak\}\}\{\{popup="http://unixhelp.ed.ac.uk/CGI/man-cgi?locate"\}\}locate {\emph{file}} & Find {\emph{file}} (quick search of system index) \tn 
+% Row Count 30 (+ 4)
+\hhline{>{\arrayrulecolor{DarkBackground}}--}
+\end{tabularx}
+\par\addvspace{1.3em}
+
+\begin{tabularx}{5.377cm}{X}
+\SetRowColor{DarkBackground}
+\mymulticolumn{1}{x{5.377cm}}{\bf\textcolor{white}{File Operations}}  \tn
+% Row 0
+\SetRowColor{LightBackground}
+\mymulticolumn{1}{x{5.377cm}}{\{\{nobreak\}\}\{\{popup="http://unixhelp.ed.ac.uk/CGI/man-cgi?touch"\}\}touch {\emph{file1}}} \tn 
+\mymulticolumn{1}{x{5.377cm}}{\hspace*{6 px}\rule{2px}{6px}\hspace*{6 px}Create {\emph{file1}}} \tn 
+% Row Count 3 (+ 3)
+% Row 1
+\SetRowColor{white}
+\mymulticolumn{1}{x{5.377cm}}{\{\{nobreak\}\}\{\{popup="http://unixhelp.ed.ac.uk/CGI/man-cgi?cat"\}\}cat {\emph{file1}} {\emph{file2}}} \tn 
+\mymulticolumn{1}{x{5.377cm}}{\hspace*{6 px}\rule{2px}{6px}\hspace*{6 px}Concatenate files and output} \tn 
+% Row Count 6 (+ 3)
+% Row 2
+\SetRowColor{LightBackground}
+\mymulticolumn{1}{x{5.377cm}}{\{\{nobreak\}\}\{\{popup="http://unixhelp.ed.ac.uk/CGI/man-cgi?less"\}\}less {\emph{file1}}} \tn 
+\mymulticolumn{1}{x{5.377cm}}{\hspace*{6 px}\rule{2px}{6px}\hspace*{6 px}View and paginate {\emph{file1}}} \tn 
+% Row Count 9 (+ 3)
+% Row 3
+\SetRowColor{white}
+\mymulticolumn{1}{x{5.377cm}}{\{\{nobreak\}\}\{\{popup="http://unixhelp.ed.ac.uk/CGI/man-cgi?file"\}\}file {\emph{file1}}} \tn 
+\mymulticolumn{1}{x{5.377cm}}{\hspace*{6 px}\rule{2px}{6px}\hspace*{6 px}Get type of {\emph{file1}}} \tn 
+% Row Count 12 (+ 3)
+% Row 4
+\SetRowColor{LightBackground}
+\mymulticolumn{1}{x{5.377cm}}{\{\{nobreak\}\}\{\{popup="http://unixhelp.ed.ac.uk/CGI/man-cgi?cp"\}\}cp {\emph{file1}} {\emph{file2}}} \tn 
+\mymulticolumn{1}{x{5.377cm}}{\hspace*{6 px}\rule{2px}{6px}\hspace*{6 px}Copy {\emph{file1}} to {\emph{file2}}} \tn 
+% Row Count 15 (+ 3)
+% Row 5
+\SetRowColor{white}
+\mymulticolumn{1}{x{5.377cm}}{\{\{nobreak\}\}\{\{popup="http://unixhelp.ed.ac.uk/CGI/man-cgi?mv"\}\}mv {\emph{file1}} {\emph{file2}}} \tn 
+\mymulticolumn{1}{x{5.377cm}}{\hspace*{6 px}\rule{2px}{6px}\hspace*{6 px}Move {\emph{file1}} to {\emph{file2}}} \tn 
+% Row Count 18 (+ 3)
+% Row 6
+\SetRowColor{LightBackground}
+\mymulticolumn{1}{x{5.377cm}}{\{\{nobreak\}\}\{\{popup="http://unixhelp.ed.ac.uk/CGI/man-cgi?rm"\}\}rm {\emph{file1}}} \tn 
+\mymulticolumn{1}{x{5.377cm}}{\hspace*{6 px}\rule{2px}{6px}\hspace*{6 px}Delete {\emph{file1}}} \tn 
+% Row Count 21 (+ 3)
+% Row 7
+\SetRowColor{white}
+\mymulticolumn{1}{x{5.377cm}}{\{\{nobreak\}\}\{\{popup="http://unixhelp.ed.ac.uk/CGI/man-cgi?head"\}\}head {\emph{file1}}} \tn 
+\mymulticolumn{1}{x{5.377cm}}{\hspace*{6 px}\rule{2px}{6px}\hspace*{6 px}Show first 10 lines of {\emph{file1}}} \tn 
+% Row Count 24 (+ 3)
+% Row 8
+\SetRowColor{LightBackground}
+\mymulticolumn{1}{x{5.377cm}}{\{\{nobreak\}\}\{\{popup="http://unixhelp.ed.ac.uk/CGI/man-cgi?tail"\}\}tail {\emph{file1}}} \tn 
+\mymulticolumn{1}{x{5.377cm}}{\hspace*{6 px}\rule{2px}{6px}\hspace*{6 px}Show last 10 lines of {\emph{file1}}} \tn 
+% Row Count 27 (+ 3)
+% Row 9
+\SetRowColor{white}
+\mymulticolumn{1}{x{5.377cm}}{\{\{nobreak\}\}\{\{popup="http://unixhelp.ed.ac.uk/CGI/man-cgi?tail"\}\}tail -F {\emph{file1}}} \tn 
+\mymulticolumn{1}{x{5.377cm}}{\hspace*{6 px}\rule{2px}{6px}\hspace*{6 px}Output last lines of {\emph{file1}} as it changes} \tn 
+% Row Count 30 (+ 3)
+\hhline{>{\arrayrulecolor{DarkBackground}}-}
+\end{tabularx}
+\par\addvspace{1.3em}
+
+\begin{tabularx}{5.377cm}{X}
+\SetRowColor{DarkBackground}
+\mymulticolumn{1}{x{5.377cm}}{\bf\textcolor{white}{Watch a Command}}  \tn
+% Row 0
+\SetRowColor{LightBackground}
+\mymulticolumn{1}{x{5.377cm}}{\{\{nobreak\}\}\{\{popup="http://unixhelp.ed.ac.uk/CGI/man-cgi?watch"\}\}watch -n 5 'ntpq -p'} \tn 
+\mymulticolumn{1}{x{5.377cm}}{\hspace*{6 px}\rule{2px}{6px}\hspace*{6 px}Issue the 'ntpq -p' command every 5 seconds and display output} \tn 
+% Row Count 4 (+ 4)
+\hhline{>{\arrayrulecolor{DarkBackground}}-}
+\end{tabularx}
+\par\addvspace{1.3em}
+
+\begin{tabularx}{5.377cm}{x{2.4885 cm} x{2.4885 cm} }
+\SetRowColor{DarkBackground}
+\mymulticolumn{2}{x{5.377cm}}{\bf\textcolor{white}{Process Management}}  \tn
+% Row 0
+\SetRowColor{LightBackground}
+\{\{nobreak\}\}\{\{popup="http://unixhelp.ed.ac.uk/CGI/man-cgi?ps"\}\}ps & Show snapshot of processes \tn 
+% Row Count 4 (+ 4)
+% Row 1
+\SetRowColor{white}
+\{\{nobreak\}\}\{\{popup="http://unixhelp.ed.ac.uk/CGI/man-cgi?top"\}\}top & Show real time processes \tn 
+% Row Count 8 (+ 4)
+% Row 2
+\SetRowColor{LightBackground}
+\{\{nobreak\}\}\{\{popup="http://unixhelp.ed.ac.uk/CGI/man-cgi?kill"\}\}kill {\emph{pid}} & Kill process with id {\emph{pid}} \tn 
+% Row Count 12 (+ 4)
+% Row 3
+\SetRowColor{white}
+\{\{nobreak\}\}\{\{popup="http://unixhelp.ed.ac.uk/CGI/man-cgi?pkill"\}\}pkill {\emph{name}} & Kill process with name {\emph{name}} \tn 
+% Row Count 16 (+ 4)
+% Row 4
+\SetRowColor{LightBackground}
+\{\{nobreak\}\}\{\{popup="http://unixhelp.ed.ac.uk/CGI/man-cgi?killall"\}\}killall {\emph{name}} & Kill all processes with names beginning {\emph{name}} \tn 
+% Row Count 21 (+ 5)
+\hhline{>{\arrayrulecolor{DarkBackground}}--}
+\end{tabularx}
+\par\addvspace{1.3em}
+
+\begin{tabularx}{5.377cm}{x{2.14011 cm} x{2.83689 cm} }
+\SetRowColor{DarkBackground}
+\mymulticolumn{2}{x{5.377cm}}{\bf\textcolor{white}{Nano Shortcuts}}  \tn
+% Row 0
+\SetRowColor{LightBackground}
+\mymulticolumn{2}{x{5.377cm}}{{\bf{Files}}} \tn 
+% Row Count 1 (+ 1)
+% Row 1
+\SetRowColor{white}
+\{\{nobreak\}\}Ctrl-R & Read file \tn 
+% Row Count 2 (+ 1)
+% Row 2
+\SetRowColor{LightBackground}
+\{\{nobreak\}\}Ctrl-O & Save file \tn 
+% Row Count 3 (+ 1)
+% Row 3
+\SetRowColor{white}
+\{\{nobreak\}\}Ctrl-X & Close file \tn 
+% Row Count 4 (+ 1)
+% Row 4
+\SetRowColor{LightBackground}
+\mymulticolumn{2}{x{5.377cm}}{{\bf{Cut and Paste}}} \tn 
+% Row Count 5 (+ 1)
+% Row 5
+\SetRowColor{white}
+\{\{nobreak\}\}ALT-A & Start marking text \tn 
+% Row Count 6 (+ 1)
+% Row 6
+\SetRowColor{LightBackground}
+\{\{nobreak\}\}CTRL-K & Cut marked text or line \tn 
+% Row Count 8 (+ 2)
+% Row 7
+\SetRowColor{white}
+\{\{nobreak\}\}CTRL-U & Paste text \tn 
+% Row Count 9 (+ 1)
+% Row 8
+\SetRowColor{LightBackground}
+\mymulticolumn{2}{x{5.377cm}}{{\bf{Navigate File}}} \tn 
+% Row Count 10 (+ 1)
+% Row 9
+\SetRowColor{white}
+\{\{nobreak\}\}ALT-/ & End of file \tn 
+% Row Count 11 (+ 1)
+% Row 10
+\SetRowColor{LightBackground}
+\{\{nobreak\}\}CTRL-A & Beginning of line \tn 
+% Row Count 12 (+ 1)
+% Row 11
+\SetRowColor{white}
+\{\{nobreak\}\}CTRL-E & End of line \tn 
+% Row Count 13 (+ 1)
+% Row 12
+\SetRowColor{LightBackground}
+\{\{nobreak\}\}CTRL-C & Show line number \tn 
+% Row Count 14 (+ 1)
+% Row 13
+\SetRowColor{white}
+\{\{nobreak\}\}CTRL-\_ & Go to line number \tn 
+% Row Count 15 (+ 1)
+% Row 14
+\SetRowColor{LightBackground}
+\mymulticolumn{2}{x{5.377cm}}{{\bf{Search File}}} \tn 
+% Row Count 16 (+ 1)
+% Row 15
+\SetRowColor{white}
+\{\{nobreak\}\}CTRL-W & Find \tn 
+% Row Count 17 (+ 1)
+% Row 16
+\SetRowColor{LightBackground}
+\{\{nobreak\}\}ALT-W & Find next \tn 
+% Row Count 18 (+ 1)
+% Row 17
+\SetRowColor{white}
+\{\{nobreak\}\}CTRL-\textbackslash{} & Search and replace \tn 
+% Row Count 19 (+ 1)
+\hhline{>{\arrayrulecolor{DarkBackground}}--}
+\SetRowColor{LightBackground}
+\mymulticolumn{2}{x{5.377cm}}{More nano info at: \newline http://www.nano-editor.org/docs.php}  \tn 
+\hhline{>{\arrayrulecolor{DarkBackground}}--}
+\end{tabularx}
+\par\addvspace{1.3em}
+
+\begin{tabularx}{5.377cm}{X}
+\SetRowColor{DarkBackground}
+\mymulticolumn{1}{x{5.377cm}}{\bf\textcolor{white}{Screen Shortcuts}}  \tn
+% Row 0
+\SetRowColor{LightBackground}
+\mymulticolumn{1}{x{5.377cm}}{\{\{nobreak\}\}\{\{popup="https://www.gnu.org/software/screen/manual/screen.html"\}\}screen} \tn 
+\mymulticolumn{1}{x{5.377cm}}{\hspace*{6 px}\rule{2px}{6px}\hspace*{6 px}Start a screen session.} \tn 
+% Row Count 3 (+ 3)
+% Row 1
+\SetRowColor{white}
+\mymulticolumn{1}{x{5.377cm}}{\{\{nobreak\}\}screen -r} \tn 
+\mymulticolumn{1}{x{5.377cm}}{\hspace*{6 px}\rule{2px}{6px}\hspace*{6 px}Resume a screen session.} \tn 
+% Row Count 5 (+ 2)
+% Row 2
+\SetRowColor{LightBackground}
+\mymulticolumn{1}{x{5.377cm}}{\{\{nobreak\}\}screen -list} \tn 
+\mymulticolumn{1}{x{5.377cm}}{\hspace*{6 px}\rule{2px}{6px}\hspace*{6 px}Show your current screen sessions.} \tn 
+% Row Count 7 (+ 2)
+% Row 3
+\SetRowColor{white}
+\mymulticolumn{1}{x{5.377cm}}{\{\{nobreak\}\}CTRL-A} \tn 
+\mymulticolumn{1}{x{5.377cm}}{\hspace*{6 px}\rule{2px}{6px}\hspace*{6 px}Activate commands for screen.} \tn 
+% Row Count 9 (+ 2)
+% Row 4
+\SetRowColor{LightBackground}
+\mymulticolumn{1}{x{5.377cm}}{\{\{nobreak\}\}CTRL-A c} \tn 
+\mymulticolumn{1}{x{5.377cm}}{\hspace*{6 px}\rule{2px}{6px}\hspace*{6 px}Create a new instance of terminal.} \tn 
+% Row Count 11 (+ 2)
+% Row 5
+\SetRowColor{white}
+\mymulticolumn{1}{x{5.377cm}}{\{\{nobreak\}\}CTRL-A n} \tn 
+\mymulticolumn{1}{x{5.377cm}}{\hspace*{6 px}\rule{2px}{6px}\hspace*{6 px}Go to the next instance of terminal.} \tn 
+% Row Count 13 (+ 2)
+% Row 6
+\SetRowColor{LightBackground}
+\mymulticolumn{1}{x{5.377cm}}{\{\{nobreak\}\}CTRL-A p} \tn 
+\mymulticolumn{1}{x{5.377cm}}{\hspace*{6 px}\rule{2px}{6px}\hspace*{6 px}Go to the previous instance of terminal.} \tn 
+% Row Count 15 (+ 2)
+% Row 7
+\SetRowColor{white}
+\mymulticolumn{1}{x{5.377cm}}{\{\{nobreak\}\}CTRL-A "} \tn 
+\mymulticolumn{1}{x{5.377cm}}{\hspace*{6 px}\rule{2px}{6px}\hspace*{6 px}Show current instances of terminals.} \tn 
+% Row Count 17 (+ 2)
+% Row 8
+\SetRowColor{LightBackground}
+\mymulticolumn{1}{x{5.377cm}}{\{\{nobreak\}\}CTRL-A A} \tn 
+\mymulticolumn{1}{x{5.377cm}}{\hspace*{6 px}\rule{2px}{6px}\hspace*{6 px}Rename the current instance.} \tn 
+% Row Count 19 (+ 2)
+\hhline{>{\arrayrulecolor{DarkBackground}}-}
+\SetRowColor{LightBackground}
+\mymulticolumn{1}{x{5.377cm}}{More screen info at: \newline http://www.gnu.org/software/screen/}  \tn 
+\hhline{>{\arrayrulecolor{DarkBackground}}-}
+\end{tabularx}
+\par\addvspace{1.3em}
+
+\begin{tabularx}{5.377cm}{X}
+\SetRowColor{DarkBackground}
+\mymulticolumn{1}{x{5.377cm}}{\bf\textcolor{white}{File Permissions}}  \tn
+% Row 0
+\SetRowColor{LightBackground}
+\mymulticolumn{1}{x{5.377cm}}{\{\{nobreak\}\}\{\{popup="http://unixhelp.ed.ac.uk/CGI/man-cgi?chmod"\}\}chmod 775 {\emph{file}}} \tn 
+\mymulticolumn{1}{x{5.377cm}}{\hspace*{6 px}\rule{2px}{6px}\hspace*{6 px}Change mode of {\emph{file}} to 775} \tn 
+% Row Count 3 (+ 3)
+% Row 1
+\SetRowColor{white}
+\mymulticolumn{1}{x{5.377cm}}{\{\{nobreak\}\}\{\{popup="http://unixhelp.ed.ac.uk/CGI/man-cgi?chmod"\}\}chmod -R 600 {\emph{folder}}} \tn 
+\mymulticolumn{1}{x{5.377cm}}{\hspace*{6 px}\rule{2px}{6px}\hspace*{6 px}Recursively chmod {\emph{folder}} to 600} \tn 
+% Row Count 6 (+ 3)
+% Row 2
+\SetRowColor{LightBackground}
+\mymulticolumn{1}{x{5.377cm}}{\{\{nobreak\}\}\{\{popup="http://unixhelp.ed.ac.uk/CGI/man-cgi?chown"\}\}chown {\emph{user}}:{\emph{group}} {\emph{file}}} \tn 
+\mymulticolumn{1}{x{5.377cm}}{\hspace*{6 px}\rule{2px}{6px}\hspace*{6 px}Change {\emph{file}} owner to {\emph{user}} and group to {\emph{group}}} \tn 
+% Row Count 10 (+ 4)
+\hhline{>{\arrayrulecolor{DarkBackground}}-}
+\end{tabularx}
+\par\addvspace{1.3em}
+
+\begin{tabularx}{5.377cm}{p{0.4977 cm} x{4.4793 cm} }
+\SetRowColor{DarkBackground}
+\mymulticolumn{2}{x{5.377cm}}{\bf\textcolor{white}{File Permission Numbers}}  \tn
+% Row 0
+\SetRowColor{LightBackground}
+\mymulticolumn{2}{x{5.377cm}}{First digit is owner permission, second is group and third is everyone.} \tn 
+% Row Count 2 (+ 2)
+% Row 1
+\SetRowColor{white}
+\mymulticolumn{2}{x{5.377cm}}{Calculate permission digits by adding numbers below.} \tn 
+% Row Count 4 (+ 2)
+% Row 2
+\SetRowColor{LightBackground}
+4 & read (r) \tn 
+% Row Count 5 (+ 1)
+% Row 3
+\SetRowColor{white}
+2 & write (w) \tn 
+% Row Count 6 (+ 1)
+% Row 4
+\SetRowColor{LightBackground}
+1 & execute (x) \tn 
+% Row Count 7 (+ 1)
+\hhline{>{\arrayrulecolor{DarkBackground}}--}
+\end{tabularx}
+\par\addvspace{1.3em}
+
+
+% That's all folks
+\end{multicols*}
+
+\end{document}
