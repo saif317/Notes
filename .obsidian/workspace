@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "BlockChain/BlockChain Demo.md",
+            "file": "to study.md",
             "mode": "source",
             "source": false
           }
@@ -69,7 +69,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "BlockChain/BlockChain Demo.md",
+                "file": "to study.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -97,15 +97,15 @@
   },
   "active": "329eb22f63f0c687",
   "lastOpenFiles": [
+    "to study.md",
+    "Untitled.md",
+    "create iftar invitation.md",
+    "todo.md",
+    "Angular/Learning Angular/Interacting with the template/2. Applying styles to the template.md",
+    "Angular/Learning Angular/Interacting with the template/1. Displaying data from the component.md",
+    "things i need.md",
     "BlockChain/BlockChain Demo.md",
     "CheatSheets/Untitled.md",
-    "CheatSheets/davechild_linux-command-line.pdf",
-    "CheatSheets/Chocolatey.md",
-    "Documentations/Chocolatey.md",
-    "3D/Introduction to Human Anatomy for Artists.md",
-    "3D/CGTrader.md",
-    "3D/AnatomyLearning.md",
-    "3D/Becoming A Character Artist – Ultimate Guide.md",
-    "3D/Human Proportions Calculator.md"
+    "CheatSheets/davechild_linux-command-line.pdf"
   ]
 }

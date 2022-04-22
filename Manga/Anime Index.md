@@ -1,3 +1,0 @@
-### [Anime Index](https://piracy.moe/)
-
-The Anime Index is an index listing and comparing all different types of websites, applications, and services for consuming Japanese media. We do not host any copyright infringing files, our services do not enable any sort of file sharing, and we strictly forbid the distribution of copyrighted media. All data is provided faithfully to the best of our knowledge and is subject to change without prior notice. We are not affiliated or partnered with any of the services or applications listed. We are affiliated with certain VPN providers via their referral affiliate program and receive a commission for signups via our affiliate links. We are not responsible for any of the services listed on the index.
